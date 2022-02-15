@@ -1,0 +1,26 @@
+.container {
+  width: 100%;
+  padding: 20px;
+  margin-top: 50px;
+}
+.login-page {
+  display: flex;
+  align-items: center;
+}
+
+.flex-items {
+  width: calc(100% / 2);
+}
+h1 {
+  color: blue;
+}
+.text-color {
+  text-decoration: whitesmoke;
+}
+.asterisk{
+  color: red;
+}
+.invalid-input
+{
+  background-color: 1px solid red;
+}
