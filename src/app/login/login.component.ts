@@ -12,6 +12,7 @@ import { FormModel } from '../formModel';
 })
 export class LoginComponent implements OnInit {
   formModel = new AccountModel();
+  users: AccountModel[] = [];
   error!: string;
 
   constructor(private router: Router, private appService: AppService) {}
@@ -19,6 +20,9 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     // // this.appService.addUser.subscribe((data) => {
     // //   this.appService.users.push(data);
+
+    this.appService.fetchUsers();
+    this.users = JSON.parse(localStorage.getItem('users') || '{}');
     // });
   }
 

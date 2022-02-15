@@ -13,8 +13,11 @@ export class AppService {
     { email: 'pqr', password: '0000' },
   ];
   constructor() {}
+  fetchUsers(): void {
+    localStorage.setItem('users', JSON.stringify(this.users));
+  }
   addUsers(user: AccountModel) {
-    
     this.users.push(user);
+    localStorage.setItem('users', JSON.stringify(this.users));
   }
 }
