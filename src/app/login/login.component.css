@@ -6,21 +6,18 @@
 .login-page {
   display: flex;
   align-items: center;
+  justify-content: space-evenly;
 }
 
-.flex-items {
-  width: calc(100% / 2);
-}
 h1 {
   color: blue;
 }
 .text-color {
   text-decoration: whitesmoke;
 }
-.asterisk{
+.asterisk {
   color: red;
 }
-.invalid-input
-{
+.invalid-input {
   background-color: 1px solid red;
 }
