@@ -20,7 +20,6 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     // // this.appService.addUser.subscribe((data) => {
     // //   this.appService.users.push(data);
-
     this.appService.fetchUsers();
     this.users = JSON.parse(localStorage.getItem('users') || '{}');
     // });
@@ -34,13 +33,14 @@ export class LoginComponent implements OnInit {
   }
   validate() {
     // console.log('click', this.formModel.email, this.formModel.password);
-    this.appService.users.forEach((a) => {
+    this.users.forEach((a) => {
       if (
         this.formModel.email === a.email &&
         this.formModel.password === a.password
-      )
+      ) {
+        localStorage.setItem('loggedInUser', JSON.stringify(a));
         this.router.navigate(['/home']);
-      else {
+      } else {
         this.error = 'Invalid credentials';
       }
     });

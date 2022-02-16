@@ -14,6 +14,7 @@ export class HeaderComponent implements OnInit {
 
   onLogout(e: any) {
     e.preventDefault();
+    localStorage.removeItem('loggedInUser');
     this.router.navigate(['']);
   }
 }

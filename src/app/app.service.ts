@@ -14,7 +14,9 @@ export class AppService {
   ];
   constructor() {}
   fetchUsers(): void {
-    localStorage.setItem('users', JSON.stringify(this.users));
+    if (!localStorage.getItem('users')) {
+      localStorage.setItem('users', JSON.stringify(this.users));
+    }
   }
   addUsers(user: AccountModel) {
     this.users.push(user);
