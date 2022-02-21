@@ -1,4 +1,8 @@
-<div class="container">
+<div
+  class="container"
+  ng-app="show_hide_password"
+  ng-controller="show_hide_password_controller"
+>
   <div class="login-page">
     <div class="flex-items">
       <h1>Facebook</h1>
@@ -31,19 +35,29 @@
         </div>
         <div class="form-group">
           <label for="Password">Password <span class="asterisk">*</span></label>
-          <input
-            id="Password"
-            name="Password"
-            type="password"
-            class="form-control"
-            placeholder="Password"
-            required
-            [(ngModel)]="formModel.password"
-            #password="ngModel"
-            [ngClass]="{
-              'invalid-input': formData.submitted && password.errors?.required
-            }"
-          />
+          <div class="input-group mb-3">
+            <input
+              id="Password"
+              name="Password"
+              [type]="inputType ? 'text' : 'password'"
+              placeholder="Password"
+              class="form-control"
+              required
+              [(ngModel)]="formModel.password"
+              #password="ngModel"
+              [ngClass]="{
+                'invalid-input': formData.submitted && password.errors?.required
+              }"
+            />
+            <div class="input-group-addon">
+              <span class="input-group-text">
+                <i
+                  [class]="show_eye ? 'fa fa-eye' : 'fa fa-eye-slash'"
+                  (click)="onShowPassword()"
+                ></i
+              ></span>
+            </div>
+          </div>
           <div
             *ngIf="formData.submitted && password.errors?.required"
             class="asterisk"

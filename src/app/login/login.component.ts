@@ -1,4 +1,5 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { ITS_JUST_ANGULAR } from '@angular/core/src/r3_symbols';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AppService } from '../app.service';
@@ -14,6 +15,8 @@ export class LoginComponent implements OnInit {
   formModel = new AccountModel();
   users: AccountModel[] = [];
   error!: string;
+  inputType?: boolean;
+  show_eye?: boolean;
 
   constructor(private router: Router, private appService: AppService) {}
 
@@ -47,5 +50,9 @@ export class LoginComponent implements OnInit {
   }
   onCreateAccount() {
     this.router.navigate(['/new']);
+  }
+  onShowPassword() {
+    this.inputType = !this.inputType;
+    this.show_eye = !this.show_eye;
   }
 }

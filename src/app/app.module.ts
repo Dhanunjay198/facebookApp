@@ -12,7 +12,15 @@ import { CreateAccountComponent } from './create-account/create-account.componen
 import { MessageComponent } from './message/message.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, HomeComponent, HeaderComponent, FriendsComponent, CreateAccountComponent, MessageComponent],
+  declarations: [
+    AppComponent,
+    LoginComponent,
+    HomeComponent,
+    HeaderComponent,
+    FriendsComponent,
+    CreateAccountComponent,
+    MessageComponent,
+  ],
   imports: [BrowserModule, FormsModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent],

@@ -21,3 +21,9 @@ h1 {
 .invalid-input {
   background-color: 1px solid red;
 }
+.input-group-text {
+  border: none;
+}
+.fa {
+  font-size: 27px;
+}
