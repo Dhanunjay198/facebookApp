@@ -5,4 +5,11 @@ export class AccountModel {
   password?: string;
   newPassword?: string;
   confirmPassword?: string;
+  imageUrl?: string;
+  posts?: PostModel[];
+}
+
+export class PostModel {
+  content?: string;
+  time?: string;
 }
