@@ -55,4 +55,8 @@ export class LoginComponent implements OnInit {
     this.inputType = !this.inputType;
     this.show_eye = !this.show_eye;
   }
+  onForgotPassword(e: any) {
+    e.preventDefault();
+    this.router.navigate(['/password']);
+  }
 }

@@ -3,6 +3,7 @@ export class AccountModel {
   lastName?: string;
   email?: string;
   password?: string;
+  oldPassword?: string;
   newPassword?: string;
   confirmPassword?: string;
   imageUrl?: string;

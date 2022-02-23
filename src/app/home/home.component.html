@@ -1,20 +1,19 @@
 <app-header></app-header>
 <div class="container">
-  <div class="card text-center">
+  <div class="card text-center card-block" *ngFor="let post of posts">
     <div class="card-header">
       <img
         src="https://1.bp.blogspot.com/-0ZUMPsBahSo/X0vuBttwtWI/AAAAAAAAdwM/_0Nuxi-PWUsgTsLdAmGZqILPiJf7N2bdACLcBGAsYHQ/s1600/best%2Bdp%2Bfor%2Bwhatsapp%2B%25281%2529.jpg"
         class="circle"
       />
-      <div class="ml-1">Dhanunjay posted 1 hr ago</div>
+      <div class="ml-1">{{ post.time }}</div>
     </div>
     <div class="card-body">
-      <h5 class="card-title">Special title treatment</h5>
+      <h5 class="card-title">{{ post.content }}</h5>
       <p class="card-text">
         With supporting text below as a natural lead-in to additional content.
       </p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
+      <a href="#" class="btn btn-primary">View Profile</a>
     </div>
-    <div class="card-footer text-muted">2 days ago</div>
   </div>
 </div>
