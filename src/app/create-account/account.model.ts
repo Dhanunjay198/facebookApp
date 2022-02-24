@@ -11,6 +11,10 @@ export class AccountModel {
 }
 
 export class PostModel {
+  title?: string;
   content?: string;
   time?: string;
+  imageUrl?: string;
+  firstName?: string;
+  calcTime?: string;
 }

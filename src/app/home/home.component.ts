@@ -1,5 +1,5 @@
-import { ThrowStmt } from '@angular/compiler';
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+
 import { AppService } from '../app.service';
 import { AccountModel, PostModel } from '../create-account/account.model';
 
@@ -13,10 +13,29 @@ export class HomeComponent implements OnInit {
   content?: string;
   posts: PostModel[] = [];
   ngOnInit(): void {
-    this.appService.users.forEach((a) =>
-      a.posts?.forEach((a) => {
-        this.posts.push(a);
+    this.appService.users.forEach((user) =>
+      user.posts?.forEach((post) => {
+        if (post.time) {
+          const day =
+            (new Date().getTime() - new Date(post.time).getTime()) /
+            (24 * 60 * 60 * 1000);
+          if (day < 1) {
+            post.calcTime = Math.trunc(day * 24) + ' hours ago';
+          }
+          if (day >= 1 && day < 7) {
+            post.calcTime = Math.trunc(day) + ' days ago';
+          }
+          if (day >= 7) {
+            post.calcTime = Math.trunc(day / 7) + ' weeks ago';
+          }
+        }
+        post.imageUrl = user.imageUrl;
+        post.firstName = user.firstName;
+        this.posts.push(post);
       })
     );
+    const days = new Date().getDay();
+    console.log(days);
+    console.log(new Date().toLocaleString());
   }
 }
