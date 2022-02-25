@@ -6,6 +6,7 @@ export class AccountModel {
   oldPassword?: string;
   newPassword?: string;
   confirmPassword?: string;
+  otp?: number;
   imageUrl?: string;
   posts?: PostModel[];
 }

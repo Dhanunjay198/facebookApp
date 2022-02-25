@@ -11,6 +11,7 @@ import { FriendsComponent } from './friends/friends.component';
 import { CreateAccountComponent } from './create-account/create-account.component';
 import { MessageComponent } from './message/message.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
     CreateAccountComponent,
     MessageComponent,
     ForgotPasswordComponent,
+    ProfileComponent,
   ],
   imports: [BrowserModule, FormsModule, AppRoutingModule],
   providers: [],

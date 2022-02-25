@@ -12,25 +12,27 @@ export class AppService {
       firstName: 'Ramesh',
       email: 'abc',
       password: '1234',
+      otp: 100,
       posts: [
         {
           title: 'New year wishes',
           content: 'Greetings, I wish you all happy new year',
-          time: '02/24/2022, 4:00:00 PM',
+          time: '02/24/2022, 5:35:00 PM',
         },
       ],
       imageUrl:
-        'https://1.bp.blogspot.com/-0ZUMPsBahSo/X0vuBttwtWI/AAAAAAAAdwM/_0Nuxi-PWUsgTsLdAmGZqILPiJf7N2bdACLcBGAsYHQ/s1600/best%2Bdp%2Bfor%2Bwhatsapp%2B%25281%2529.jpg',
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTagSIpNvrU1N3lvzrWDoSf5oJzABckJ3HbMw&usqp=CAU',
     },
     {
       firstName: 'Suresh',
       email: 'xyz',
       password: '3456',
+      otp: 200,
       posts: [
         {
           title: 'Daily wish',
           content: 'Hello, Good Morning',
-          time: '02/22/2022, 4:00:00 PM',
+          time: '02/23/2022, 4:00:00 PM',
         },
       ],
       imageUrl:
@@ -40,11 +42,12 @@ export class AppService {
       firstName: 'Rani',
       email: 'pqr',
       password: '0000',
+      otp: 300,
       posts: [
         {
           title: 'New Beginnings',
           content: 'I would like to inform I have joined a new Company',
-          time: '02/15/2022, 4:00:00 PM',
+          time: '02/07/2022, 4:00:00 PM',
         },
       ],
       imageUrl:

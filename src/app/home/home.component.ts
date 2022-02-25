@@ -20,13 +20,22 @@ export class HomeComponent implements OnInit {
             (new Date().getTime() - new Date(post.time).getTime()) /
             (24 * 60 * 60 * 1000);
           if (day < 1) {
-            post.calcTime = Math.trunc(day * 24) + ' hours ago';
+            post.calcTime =
+              Math.trunc(day * 24) === 1
+                ? Math.trunc(day * 24) + ' hour ago'
+                : Math.trunc(day * 24) + ' hours ago';
           }
           if (day >= 1 && day < 7) {
-            post.calcTime = Math.trunc(day) + ' days ago';
+            post.calcTime =
+              Math.trunc(day) === 1
+                ? Math.trunc(day) + ' day ago'
+                : Math.trunc(day) + ' days ago';
           }
           if (day >= 7) {
-            post.calcTime = Math.trunc(day / 7) + ' weeks ago';
+            post.calcTime =
+              Math.trunc(day / 7) === 1
+                ? Math.trunc(day / 7) + ' week ago'
+                : +Math.trunc(day / 7) + ' weeks ago';
           }
         }
         post.imageUrl = user.imageUrl;
@@ -34,8 +43,6 @@ export class HomeComponent implements OnInit {
         this.posts.push(post);
       })
     );
-    const days = new Date().getDay();
-    console.log(days);
-    console.log(new Date().toLocaleString());
   }
+  onViewProfile() {}
 }
