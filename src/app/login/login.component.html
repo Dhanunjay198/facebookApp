@@ -1,8 +1,4 @@
-<div
-  class="container"
-  ng-app="show_hide_password"
-  ng-controller="show_hide_password_controller"
->
+<div class="container">
   <div class="login-page">
     <div class="flex-items">
       <h1>Facebook</h1>
@@ -67,7 +63,11 @@
         </div>
         <br />
         <button class="btn btn-primary">Login</button>
+        <button class="btn btn-secondary" type="reset" (click)="onResetField()">
+          Clear
+        </button>
         <p style="color: red">{{ error }}</p>
+
         <br />
         <a href="#" (click)="onForgotPassword($event)">Forgot Password</a>
         <hr />

@@ -18,7 +18,13 @@ export class ForgotPasswordComponent implements OnInit {
   constructor(private appService: AppService, private router: Router) {}
 
   ngOnInit(): void {}
-  onPasswordReset(formData: NgForm, e: any) {}
+  onPasswordReset(formData: NgForm, e: any) {
+    this.appService.users.filter(
+      (user) => user.email === this.accountModel.email
+    )[0].password = this.accountModel.newPassword;
+    localStorage.setItem('users', JSON.stringify(this.appService.users));
+    this.router.navigate(['']);
+  }
   onSendOtp(formData: NgForm) {
     const result = this.appService.users.map((user) => user.email);
 

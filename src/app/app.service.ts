@@ -17,7 +17,7 @@ export class AppService {
         {
           title: 'New year wishes',
           content: 'Greetings, I wish you all happy new year',
-          time: '02/24/2022, 5:35:00 PM',
+          time: '02/28/2022, 4:00:00 PM',
         },
       ],
       imageUrl:
@@ -32,7 +32,7 @@ export class AppService {
         {
           title: 'Daily wish',
           content: 'Hello, Good Morning',
-          time: '02/23/2022, 4:00:00 PM',
+          time: '03/01/2022, 12:35:00 PM',
         },
       ],
       imageUrl:
@@ -47,7 +47,7 @@ export class AppService {
         {
           title: 'New Beginnings',
           content: 'I would like to inform I have joined a new Company',
-          time: '02/07/2022, 4:00:00 PM',
+          time: '02/017/2022, 4:00:00 PM',
         },
       ],
       imageUrl:
@@ -55,7 +55,7 @@ export class AppService {
     },
   ];
   constructor() {}
-  fetchUsers(): void {
+  setUsers(): void {
     if (!localStorage.getItem('users')) {
       localStorage.setItem('users', JSON.stringify(this.users));
     }
