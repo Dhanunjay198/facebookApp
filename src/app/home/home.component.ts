@@ -1,4 +1,5 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { NavigationExtras, Router } from '@angular/router';
 
 import { AppService } from '../app.service';
 import { AccountModel, PostModel } from '../create-account/account.model';
@@ -9,7 +10,7 @@ import { AccountModel, PostModel } from '../create-account/account.model';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-  constructor(private appService: AppService) {}
+  constructor(private appService: AppService, private router: Router) {}
   content?: string;
   posts: PostModel[] = [];
   currentUser = new AccountModel();
@@ -21,6 +22,7 @@ export class HomeComponent implements OnInit {
       user.posts?.forEach((post) => {
         if (!(user.email === this.currentUser.email)) {
           // this.posts.sort((a,b)=> Date.parse(a.time) -  Date.parse(b.time))
+
           if (post.time) {
             const day =
               (new Date().getTime() - new Date(post.time).getTime()) /
@@ -47,11 +49,19 @@ export class HomeComponent implements OnInit {
 
           post.imageUrl = user.imageUrl;
           post.firstName = user.firstName;
+          post.id = user.id;
           this.posts.push(post);
         }
       })
     );
     // this.posts = [];
   }
-  onViewProfile() {}
+
+  onViewProfile(e: any, post: PostModel) {
+    e.preventDefault();
+
+    this.router.navigate(['/profile'], {
+      queryParams: { id: post.id },
+    });
+  }
 }

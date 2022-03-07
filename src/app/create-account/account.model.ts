@@ -1,4 +1,5 @@
 export class AccountModel {
+  id?: number;
   firstName?: string;
   lastName?: string;
   email?: string;
@@ -8,9 +9,12 @@ export class AccountModel {
   otp?: number;
   imageUrl?: string;
   posts?: PostModel[];
+  livesIn?: string;
+  DOB?: string;
 }
 
 export class PostModel {
+  id?: number;
   title?: string;
   content?: string;
   time?: string;

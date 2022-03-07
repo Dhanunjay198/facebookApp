@@ -28,10 +28,19 @@
       </ul>
       <form class="d-flex">
         <div class="input-group">
-          <input class="form-control" type="text" aria-label="Search" />
+          <input
+            class="form-control"
+            type="text"
+            name="search"
+            aria-label="Search"
+            onkeypress="return (event.charCode > 64 && 
+          event.charCode < 91) || (event.charCode > 96 && event.charCode < 123)"
+            #userName="ngModel"
+            [(ngModel)]="formModel.firstName"
+          />
           <div class="input-group-addon">
             <span class="input-group-text">
-              <i class="fa fa-search"></i>
+              <i class="fa fa-search" (click)="onSearch($event)"></i>
             </span>
           </div>
         </div>

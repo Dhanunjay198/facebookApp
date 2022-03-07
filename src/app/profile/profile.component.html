@@ -1,1 +1,20 @@
-<p>profile works!</p>
+<div class="container">
+  <div class="about">
+    <div class="child-one">
+      <img [src]="profileUser.imageUrl" class="circle" />
+    </div>
+    <div class="info">
+      <p class="header">{{ profileUser.firstName }}</p>
+      <p class="profile-details">
+        Lives In<span class="profile-values">{{
+          " : " + profileUser.livesIn
+        }}</span>
+      </p>
+      <p class="profile-details">
+        DOB<span class="profile-values">{{ " : " + profileUser.DOB }}</span>
+      </p>
+    </div>
+  </div>
+
+  <div class="posts"></div>
+</div>

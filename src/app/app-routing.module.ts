@@ -6,6 +6,7 @@ import { FriendsComponent } from './friends/friends.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { MessageComponent } from './message/message.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'messages', component: MessageComponent },
   { path: 'new', component: CreateAccountComponent },
   { path: 'password', component: ForgotPasswordComponent },
+  { path: 'profile', component: ProfileComponent },
 ];
 
 @NgModule({

@@ -9,10 +9,14 @@ export class AppService {
   addUser = new BehaviorSubject<AccountModel>({});
   users: AccountModel[] = [
     {
+      id: 1,
       firstName: 'Ramesh',
       email: 'abc',
       password: '1234',
       otp: 100,
+      livesIn: 'Vijayawada',
+      DOB: '19-04-1997',
+
       posts: [
         {
           title: 'New year wishes',
@@ -24,10 +28,13 @@ export class AppService {
         'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTagSIpNvrU1N3lvzrWDoSf5oJzABckJ3HbMw&usqp=CAU',
     },
     {
+      id: 2,
       firstName: 'Suresh',
       email: 'xyz',
       password: '3456',
       otp: 200,
+      livesIn: 'Vuyyuru',
+      DOB: '01-01-1999',
       posts: [
         {
           title: 'Daily wish',
@@ -39,15 +46,18 @@ export class AppService {
         'https://dp-client.com/CMS-NEW/assets/images/user/user11605616227.png',
     },
     {
+      id: 3,
       firstName: 'Rani',
       email: 'pqr',
       password: '0000',
       otp: 300,
+      livesIn: 'Hyderabad',
+      DOB: '08-02-1998',
       posts: [
         {
           title: 'New Beginnings',
           content: 'I would like to inform I have joined a new Company',
-          time: '02/017/2022, 4:00:00 PM',
+          time: '03/02/2022, 9:00:00 AM',
         },
       ],
       imageUrl:
