@@ -26,17 +26,20 @@
           <a class="nav-link" routerLink="/messages"> Messages </a>
         </li>
       </ul>
-      <form class="d-flex">
+      <form class="d-flex" method="get">
         <div class="input-group">
           <input
             class="form-control"
             type="text"
             name="search"
             aria-label="Search"
-            onkeypress="return (event.charCode > 64 && 
-          event.charCode < 91) || (event.charCode > 96 && event.charCode < 123)"
             #userName="ngModel"
+            onkeypress="return (
+              (event.charCode > 64 && event.charCode < 91) ||
+              (event.charCode > 96 && event.charCode < 123)
+            )"
             [(ngModel)]="formModel.firstName"
+            autocomplete="off"
           />
           <div class="input-group-addon">
             <span class="input-group-text">

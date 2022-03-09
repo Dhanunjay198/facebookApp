@@ -7,6 +7,7 @@ import { AccountModel, PostModel } from './create-account/account.model';
 })
 export class AppService {
   addUser = new BehaviorSubject<AccountModel>({});
+
   users: AccountModel[] = [
     {
       id: 1,
@@ -58,6 +59,24 @@ export class AppService {
           title: 'New Beginnings',
           content: 'I would like to inform I have joined a new Company',
           time: '03/02/2022, 9:00:00 AM',
+        },
+      ],
+      imageUrl:
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzyALOcLp4ykOIC4bim8L0xZIvgfLLZEo-mg&usqp=CAU',
+    },
+    {
+      id: 4,
+      firstName: 'suma',
+      email: 'lmn',
+      password: '1908',
+      otp: 400,
+      livesIn: 'Chennai',
+      DOB: '28-04-1990',
+      posts: [
+        {
+          title: 'Pleasant Day',
+          content: 'Good day to relax',
+          time: '03/05/2022, 9:00:00 AM',
         },
       ],
       imageUrl:

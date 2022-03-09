@@ -1,5 +1,5 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+
 import { Router } from '@angular/router';
 import { AppService } from '../app.service';
 import { AccountModel } from '../create-account/account.model';
@@ -12,11 +12,15 @@ import { AccountModel } from '../create-account/account.model';
 export class HeaderComponent implements OnInit {
   showModal = false;
   user: AccountModel[] = [];
+  displaySearch = true;
   postId?: number;
+  @Output() userInput = new EventEmitter<string>();
   formModel = new AccountModel();
   constructor(private router: Router, private appService: AppService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    // console.log(this.displaySearch);
+  }
 
   onLogout(e: any) {
     e.preventDefault();
@@ -28,18 +32,17 @@ export class HeaderComponent implements OnInit {
     localStorage.removeItem('loggedInUser');
     this.router.navigate(['']);
   }
+
   onSearch(e: any) {
-    this.postId = this.appService.users.filter(
-      (user) =>
-        user.firstName?.toLowerCase() ===
-        this.formModel.firstName?.toLowerCase()
-    )[0].id;
+    // this.postId = this.appService.users.filter(
+    //   (user) =>
+    //     user.firstName?.toLowerCase() ===
+    //     this.formModel.firstName?.toLowerCase()
+    // )[0].id;
 
-    this.user = this.appService.users.filter((user) => user.id === this.postId);
-    console.log(this.user);
-
-    this.router.navigate(['/profile'], {
-      queryParams: { id: this.postId },
-    });
+    // this.router.navigate(['/profile'], {
+    //   queryParams: { id: this.postId },
+    // });
+    this.userInput.emit(this.formModel.firstName);
   }
 }

@@ -11,13 +11,13 @@ import { AccountModel } from '../create-account/account.model';
 })
 export class ProfileComponent implements OnInit {
   id?: number;
-
+  search?: boolean;
   profileUser = new AccountModel();
   constructor(private route: ActivatedRoute, private appService: AppService) {}
 
   ngOnInit(): void {
     this.route.queryParams.subscribe((param) => (this.id = param['id']));
-    console.log(this.id);
+    // console.log(this.id);
     this.profileUser = this.appService.users.filter(
       (user) => user.id === Number(this.id)
     )[0];

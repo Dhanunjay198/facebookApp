@@ -12,17 +12,22 @@ import { AccountModel, PostModel } from '../create-account/account.model';
 export class HomeComponent implements OnInit {
   constructor(private appService: AppService, private router: Router) {}
   content?: string;
+  user: AccountModel[] = [];
+  search = true;
   posts: PostModel[] = [];
   currentUser = new AccountModel();
+  formModel = new AccountModel();
 
   ngOnInit(): void {
     this.currentUser = JSON.parse(localStorage.getItem('loggedInUser') || '{}');
+    this.assignPostValues(this.appService.users);
+  }
 
-    this.appService.users.forEach((user) =>
+  assignPostValues(inputUsers: AccountModel[]): void {
+    this.posts = [];
+    inputUsers.forEach((user) =>
       user.posts?.forEach((post) => {
         if (!(user.email === this.currentUser.email)) {
-          // this.posts.sort((a,b)=> Date.parse(a.time) -  Date.parse(b.time))
-
           if (post.time) {
             const day =
               (new Date().getTime() - new Date(post.time).getTime()) /
@@ -54,7 +59,6 @@ export class HomeComponent implements OnInit {
         }
       })
     );
-    // this.posts = [];
   }
 
   onViewProfile(e: any, post: PostModel) {
@@ -63,5 +67,24 @@ export class HomeComponent implements OnInit {
     this.router.navigate(['/profile'], {
       queryParams: { id: post.id },
     });
+  }
+  onUserData(userName: string) {
+    let filteredUsers: AccountModel[] = [];
+    filteredUsers = this.appService.users.filter((user) =>
+      user.firstName?.toLowerCase().includes(userName.toLowerCase())
+    );
+    this.assignPostValues(filteredUsers);
+
+    // this.posts = this.appService.users.filter((user) =>
+    //   user.posts?.filter((post) => {
+    //     // post.imageUrl = user.imageUrl;
+    //     // post.firstName = user.firstName;
+    //     // post.id = user.id;
+    //     if (!(user.email === this.currentUser.email)) {
+    //       console.log(post.firstName);
+    //       user.posts.firstName?.toLowerCase().includes(userName.toLowerCase());
+    //     }
+    //   })
+    // );
   }
 }
