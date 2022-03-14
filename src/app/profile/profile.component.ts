@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AppService } from '../app.service';
-import { AccountModel } from '../create-account/account.model';
+import { AccountModel, PostModel } from '../create-account/account.model';
+import CommonUtilites from '../shared/common.utilities';
+
 // import 'rxjs/add/operator/filter';
 
 @Component({
@@ -11,7 +13,7 @@ import { AccountModel } from '../create-account/account.model';
 })
 export class ProfileComponent implements OnInit {
   id?: number;
-  search?: boolean;
+  profile: PostModel[] = [];
   profileUser = new AccountModel();
   constructor(private route: ActivatedRoute, private appService: AppService) {}
 
@@ -21,5 +23,16 @@ export class ProfileComponent implements OnInit {
     this.profileUser = this.appService.users.filter(
       (user) => user.id === Number(this.id)
     )[0];
+
+    this.appService.showSearch.next(false);
+    this.assignValues();
+  }
+  assignValues() {
+    this.profileUser.posts?.forEach((post) => {
+      if (post.time) {
+        post.calcTime = CommonUtilites.calcTime(post.time);
+      }
+      post.firstName = this.profileUser.firstName;
+    });
   }
 }

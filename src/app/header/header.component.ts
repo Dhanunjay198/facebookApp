@@ -11,15 +11,17 @@ import { AccountModel } from '../create-account/account.model';
 })
 export class HeaderComponent implements OnInit {
   showModal = false;
+  showSearch!: boolean;
   user: AccountModel[] = [];
-  displaySearch = true;
   postId?: number;
   @Output() userInput = new EventEmitter<string>();
   formModel = new AccountModel();
   constructor(private router: Router, private appService: AppService) {}
 
   ngOnInit(): void {
-    // console.log(this.displaySearch);
+    this.appService.showSearch.subscribe((data: boolean) => {
+      this.showSearch = data;
+    });
   }
 
   onLogout(e: any) {

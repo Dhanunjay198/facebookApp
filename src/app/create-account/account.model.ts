@@ -21,4 +21,5 @@ export class PostModel {
   imageUrl?: string;
   firstName?: string;
   calcTime?: string;
+  timeStamp?: number;
 }

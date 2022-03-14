@@ -7,6 +7,7 @@ import { AccountModel, PostModel } from './create-account/account.model';
 })
 export class AppService {
   addUser = new BehaviorSubject<AccountModel>({});
+  showSearch = new BehaviorSubject<boolean>(false);
 
   users: AccountModel[] = [
     {
@@ -22,7 +23,7 @@ export class AppService {
         {
           title: 'New year wishes',
           content: 'Greetings, I wish you all happy new year',
-          time: '02/28/2022, 4:00:00 PM',
+          time: '03/07/2022, 4:00:00 PM',
         },
       ],
       imageUrl:
@@ -40,7 +41,7 @@ export class AppService {
         {
           title: 'Daily wish',
           content: 'Hello, Good Morning',
-          time: '03/01/2022, 12:35:00 PM',
+          time: '03/10/2022, 12:35:00 PM',
         },
       ],
       imageUrl:
@@ -58,7 +59,7 @@ export class AppService {
         {
           title: 'New Beginnings',
           content: 'I would like to inform I have joined a new Company',
-          time: '03/02/2022, 9:00:00 AM',
+          time: '03/14/2022, 9:00:00 AM',
         },
       ],
       imageUrl:
@@ -76,7 +77,7 @@ export class AppService {
         {
           title: 'Pleasant Day',
           content: 'Good day to relax',
-          time: '03/05/2022, 9:00:00 AM',
+          time: '03/10/2022, 9:00:00 AM',
         },
       ],
       imageUrl:

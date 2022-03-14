@@ -1,8 +1,9 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
-import { NavigationExtras, Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { AppService } from '../app.service';
 import { AccountModel, PostModel } from '../create-account/account.model';
+import CommonUtilites from '../shared/common.utilities';
 
 @Component({
   selector: 'app-home',
@@ -17,48 +18,34 @@ export class HomeComponent implements OnInit {
   posts: PostModel[] = [];
   currentUser = new AccountModel();
   formModel = new AccountModel();
-
+  copyPosts: PostModel[] = [];
   ngOnInit(): void {
+    this.appService.showSearch.next(true);
     this.currentUser = JSON.parse(localStorage.getItem('loggedInUser') || '{}');
     this.assignPostValues(this.appService.users);
   }
 
   assignPostValues(inputUsers: AccountModel[]): void {
-    this.posts = [];
+    this.copyPosts = [];
     inputUsers.forEach((user) =>
       user.posts?.forEach((post) => {
         if (!(user.email === this.currentUser.email)) {
           if (post.time) {
-            const day =
-              (new Date().getTime() - new Date(post.time).getTime()) /
-              (24 * 60 * 60 * 1000);
-            if (day < 1) {
-              post.calcTime =
-                Math.trunc(day * 24) === 1
-                  ? Math.trunc(day * 24) + ' hour ago'
-                  : Math.trunc(day * 24) + ' hours ago';
-            }
-            if (day >= 1 && day < 7) {
-              post.calcTime =
-                Math.trunc(day) === 1
-                  ? Math.trunc(day) + ' day ago'
-                  : Math.trunc(day) + ' days ago';
-            }
-            if (day >= 7) {
-              post.calcTime =
-                Math.trunc(day / 7) === 1
-                  ? Math.trunc(day / 7) + ' week ago'
-                  : +Math.trunc(day / 7) + ' weeks ago';
-            }
+            post.calcTime = CommonUtilites.calcTime(post.time);
+            post.timeStamp =
+              new Date().getTime() - new Date(post.time).getTime();
           }
 
           post.imageUrl = user.imageUrl;
           post.firstName = user.firstName;
           post.id = user.id;
-          this.posts.push(post);
+
+          this.copyPosts.push(post);
         }
       })
     );
+    this.copyPosts.sort((a, b) => Number(a.timeStamp) - Number(b.timeStamp));
+    this.posts = this.copyPosts.slice();
   }
 
   onViewProfile(e: any, post: PostModel) {
