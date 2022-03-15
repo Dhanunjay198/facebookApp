@@ -43,6 +43,11 @@ export class AppService {
           content: 'Hello, Good Morning',
           time: '03/10/2022, 12:35:00 PM',
         },
+        {
+          title: 'Test Post',
+          content: 'Posting something',
+          time: '03/15/2022, 4:45:00 PM',
+        },
       ],
       imageUrl:
         'https://dp-client.com/CMS-NEW/assets/images/user/user11605616227.png',
@@ -60,6 +65,11 @@ export class AppService {
           title: 'New Beginnings',
           content: 'I would like to inform I have joined a new Company',
           time: '03/14/2022, 9:00:00 AM',
+        },
+        {
+          title: 'Excited to learn',
+          content: 'I have enrolled for new dev coursed',
+          time: '03/15/2022, 8:00:00 PM',
         },
       ],
       imageUrl:

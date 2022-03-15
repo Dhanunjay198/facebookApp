@@ -1,3 +1,4 @@
+import { StaticSymbol } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AppService } from '../app.service';
@@ -13,7 +14,7 @@ import CommonUtilites from '../shared/common.utilities';
 })
 export class ProfileComponent implements OnInit {
   id?: number;
-  profile: PostModel[] = [];
+  profile?: PostModel[];
   profileUser = new AccountModel();
   constructor(private route: ActivatedRoute, private appService: AppService) {}
 
@@ -28,11 +29,16 @@ export class ProfileComponent implements OnInit {
     this.assignValues();
   }
   assignValues() {
+    this.profile = [];
     this.profileUser.posts?.forEach((post) => {
       if (post.time) {
         post.calcTime = CommonUtilites.calcTime(post.time);
+        post.timeStamp = new Date().getTime() - new Date(post.time).getTime();
       }
       post.firstName = this.profileUser.firstName;
     });
+    this.profile = this.profileUser.posts?.slice();
+    this.profile?.sort((a, b) => Number(a.timeStamp) - Number(b.timeStamp));
+    this.profileUser.posts = this.profile?.slice();
   }
 }
