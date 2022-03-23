@@ -1,2 +1,17 @@
 <app-header></app-header>
-<p>friends works!</p>
+<div
+  class="card img-responsive"
+  style="width: 9rem"
+  *ngFor="let user of displayUser"
+>
+  <img class="card-img-top" [src]="user.imageUrl" alt="Card image cap" />
+  <div class="card-body">
+    <h5 class="card-title">{{ user.firstName }}</h5>
+  </div>
+
+  <div class="card-body">
+    <a href="#" class="card-link" (click)="onViewProfile($event, user)"
+      >View Profile</a
+    >
+  </div>
+</div>

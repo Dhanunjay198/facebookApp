@@ -14,7 +14,10 @@ export default class CommonUtilites implements OnInit {
     console.log(day);
     if (day < 1) {
       if (Math.trunc(day * 24) < 1) {
-        calculatedTime = Math.trunc(day * 24 * 60) + 'minutes ago';
+        calculatedTime =
+          Math.trunc(day * 24 * 60) === 1
+            ? Math.trunc(day * 24 * 60) + 'minute ago'
+            : Math.trunc(day * 24 * 60) + 'minutes ago';
       } else {
         calculatedTime =
           Math.trunc(day * 24) === 1
@@ -32,7 +35,7 @@ export default class CommonUtilites implements OnInit {
       calculatedTime =
         Math.trunc(day / 7) === 1
           ? Math.trunc(day / 7) + ' week ago'
-          : +Math.trunc(day / 7) + ' weeks ago';
+          : Math.trunc(day / 7) + ' weeks ago';
     }
     return calculatedTime;
   }

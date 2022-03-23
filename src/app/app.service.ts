@@ -23,7 +23,7 @@ export class AppService {
         {
           title: 'New year wishes',
           content: 'Greetings, I wish you all happy new year',
-          time: '03/07/2022, 4:00:00 PM',
+          time: '03/04/2022, 4:00:00 PM',
         },
       ],
       imageUrl:
@@ -41,12 +41,12 @@ export class AppService {
         {
           title: 'Daily wish',
           content: 'Hello, Good Morning',
-          time: '03/10/2022, 12:35:00 PM',
+          time: '03/14/2022, 12:35:00 PM',
         },
         {
           title: 'Test Post',
           content: 'Posting something',
-          time: '03/15/2022, 4:45:00 PM',
+          time: '03/23/2022, 4:36:00 PM',
         },
       ],
       imageUrl:
@@ -64,12 +64,12 @@ export class AppService {
         {
           title: 'New Beginnings',
           content: 'I would like to inform I have joined a new Company',
-          time: '03/14/2022, 9:00:00 AM',
+          time: '03/23/2022, 9:00:00 AM',
         },
         {
           title: 'Excited to learn',
           content: 'I have enrolled for new dev coursed',
-          time: '03/15/2022, 8:00:00 PM',
+          time: '03/23/2022, 3:38:00 PM',
         },
       ],
       imageUrl:
@@ -78,8 +78,8 @@ export class AppService {
     {
       id: 4,
       firstName: 'suma',
-      email: 'lmn',
-      password: '1908',
+      email: 'ooo',
+      password: '1111',
       otp: 400,
       livesIn: 'Chennai',
       DOB: '28-04-1990',
@@ -87,11 +87,11 @@ export class AppService {
         {
           title: 'Pleasant Day',
           content: 'Good day to relax',
-          time: '03/10/2022, 9:00:00 AM',
+          time: '03/17/2022, 9:00:00 AM',
         },
       ],
       imageUrl:
-        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzyALOcLp4ykOIC4bim8L0xZIvgfLLZEo-mg&usqp=CAU',
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRk_5t1MKffw3fiEx40UzvagxvT0A31tu36tCaerv9YVfenlU2h-U8Nfmvg90M0Eo_9jgo&usqp=CAU',
     },
   ];
   constructor() {}
